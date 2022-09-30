@@ -4,13 +4,28 @@
 </template>
 
 <script>
-
+import axios from 'axios'
+import { apiKey } from './env'
 
 export default {
   name: 'App',
   components:{
 
   },
+  // mounted(){
+  //   this.getApi()
+  // },
+  methods:{
+    getApi(){
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=ritorno+al+futuro`)
+      .then((response)=>{
+        console.log(response.data)
+      })
+      .catch(error=> {
+        console.log(error)
+      })
+    }
+  }
 }
 </script>
 
