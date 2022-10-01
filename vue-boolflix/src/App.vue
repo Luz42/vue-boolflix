@@ -34,19 +34,22 @@ export default {
     //BISOGNA EVITARE DI FARE UNA NUOVA RICHIESTA SE IL VALORE RIMANE INVARIATO
     //*********Come posso fare la chiamata evitando di ripetere il comando?**************** 
     getApi(searchByName){
+      if(searchByName !== this.textSearched){
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchByName}`)
       .then(({data, status})=>{
-        if(status === 200 && searchByName !== this.textSearched){
+
+        if(status === 200){
           this.movies = []
           this.movies.push(...data.results)
           console.log(this.movies)
           this.textSearched = searchByName
+          
         }
       })
       .catch(error=> {
         console.log('Errore: ' + error.message)
       })
-    }
+    }}
   }
 }
 </script>
