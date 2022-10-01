@@ -1,18 +1,7 @@
 <template>
   <div id="app">
     <headerComponent @search="getApi"/>
-    <mainComponent/>
-    
-    <div class="row">
-      <div class="border col" v-for="movie in movies" :key="movie.id">
-        <ul>
-          <li>titolo: {{ movie.title }}</li>
-          <li>titolo originale: {{ movie.original_title }}</li>
-          <li>lingua originale: {{ movie.original_language }}</li>
-          <li>voto: {{ movie.vote_average }}</li>
-        </ul>
-    </div>
-    </div>
+    <mainComponent :items="movies"/>
   </div>
 </template>
 
