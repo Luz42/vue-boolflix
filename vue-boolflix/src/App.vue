@@ -1,11 +1,8 @@
 <template>
   <div id="app">
-    <headerComponent/>
+    <headerComponent @search="getApi"/>
     <mainComponent/>
-    <div>
-      <input @keyup.enter="showElements()" v-model="searchByName" type="text">
-      <button @click="getApi" >search</button>
-    </div>
+    
     <div class="row">
       <div class="border col" v-for="movie in movies" :key="movie.id">
         <ul>
@@ -28,7 +25,7 @@ import { apiKey } from './env'
 export default {
   name: 'App',
   data(){return{
-    searchByName:'',
+    // searchByName:'',
     movies:[],
 
   }},
@@ -46,9 +43,9 @@ export default {
   //all'avvio della ricerca la stringa che inserirò nell'API assumerà il valore contenuto(v-model)
   methods:{
     //BISOGNA EVITARE DI FARE UNA NUOVA RICHIESTA SE IL VALORE RIMANE INVARIATO
-    //
-    getApi(){
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.searchByName}`)
+    //*********Come posso fare la chiamata evitando di ripetere il comando?**************** 
+    getApi(searchByName){
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchByName}`)
       .then(({data, status})=>{
         if(status === 200){
           this.movies = []
