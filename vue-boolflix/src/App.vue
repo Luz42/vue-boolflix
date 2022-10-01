@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <headerComponent/>
+    <mainComponent/>
     <div>
       <input @keyup.enter="showElements()" v-model="searchByName" type="text">
       <button @click="getApi" >search</button>
@@ -18,6 +20,8 @@
 </template>
 
 <script>
+import headerComponent from '@/components/headerComponent.vue'
+import mainComponent from '@/components/mainComponent.vue'
 import axios from 'axios'
 import { apiKey } from './env'
 
@@ -29,7 +33,8 @@ export default {
 
   }},
   components:{
-
+    headerComponent,
+    mainComponent
   },
     // computed:{
     //   showElements(){
