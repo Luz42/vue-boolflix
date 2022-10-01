@@ -5,7 +5,7 @@
         <ul>
           <li>titolo: {{ movie.title }}</li>
           <li>titolo originale: {{ movie.original_title }}</li>
-          <li>lingua originale: <span :class="`fi fi-${movie.original_language}`"></span> {{ movie.original_language }}</li>
+          <li>lingua originale: <ShowFlagComponent :isoFlag="movie.original_language"/> {{ movie.original_language }}</li>
           <li>voto: {{ movie.vote_average }}</li>
         </ul>
       </div>
@@ -14,14 +14,17 @@
 </template>
 
 <script>
-import "/node_modules/flag-icons/css/flag-icons.min.css";
+import ShowFlagComponent from "./showFlagComponent.vue";
 
 export default {
-    name: 'mainComponent',
-    props:{
+    name: "mainComponent",
+    props: {
         items: Array
     },
-    }
+    components: {
+         ShowFlagComponent 
+        }
+}
 </script>
 
 <style scoped lang="scss">
