@@ -17,8 +17,9 @@
         
       methods:{
         findElements(){
-            this.$emit('search', this.searchByName)
-            console.log(this.searchByName)
+
+            this.$emit('search', this.searchByName.trim())
+            console.log(this.searchByName.trim())
         }
     }    
   }

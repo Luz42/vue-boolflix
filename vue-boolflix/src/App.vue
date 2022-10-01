@@ -14,7 +14,7 @@ import { apiKey } from './env'
 export default {
   name: 'App',
   data(){return{
-    // searchByName:'',
+    textSearched:'',
     movies:[],
 
   }},
@@ -36,10 +36,11 @@ export default {
     getApi(searchByName){
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchByName}`)
       .then(({data, status})=>{
-        if(status === 200){
+        if(status === 200 && searchByName !== this.textSearched){
           this.movies = []
           this.movies.push(...data.results)
           console.log(this.movies)
+          this.textSearched = searchByName
         }
       })
       .catch(error=> {
