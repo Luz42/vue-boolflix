@@ -1,17 +1,18 @@
 <template>
   <section class="border col">
-            <ul>
-            <li>titolo: {{ serie.name }}</li>
-            <li>titolo originale: {{ serie.original_name }}</li>
-            <li>lingua originale: <ShowFlagComponent :isoFlag="serie.original_language"/> {{ serie.original_language }}</li>
-            <li>voto: {{ serie.vote_average }}</li>
-            <li>copertina: <img :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`" alt="#"></li>
-            </ul>
+    <ul>
+      <li>titolo: {{ serie.name }}</li>
+      <li>titolo originale: {{ serie.original_name }}</li>
+      <li>lingua originale: <showFlagComponent :isoFlag="serie.original_language"/> {{ serie.original_language }}</li>
+      <li>voto: {{ serie.vote_average }}</li>
+      <showPosterComponent :image="serie.poster_path"/>
+    </ul>
   </section>
 </template>
   
 <script>
-import ShowFlagComponent from "./showFlagComponent.vue";
+import showFlagComponent from "./showFlagComponent.vue";
+import showPosterComponent from "./showPosterComponent.vue";
 
 
 export default {
@@ -20,7 +21,8 @@ export default {
     serie: Object
   },
   components:{
-    ShowFlagComponent 
+    showPosterComponent,
+    showFlagComponent 
   }
 }
 </script>
