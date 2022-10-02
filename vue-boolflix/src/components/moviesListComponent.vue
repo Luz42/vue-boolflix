@@ -6,6 +6,7 @@
       <li>lingua originale: <showFlagComponent :isoFlag="movie.original_language"/> {{ movie.original_language }}</li>
       <li>voto: {{ movie.vote_average }}</li>
       <showPosterComponent :image="movie.poster_path"/>
+      <getVoteStarsComponent :vote="movie.vote_average"/>
     </ul>
   </section>
 </template>
@@ -13,6 +14,7 @@
 <script>
 import showFlagComponent from "./showFlagComponent.vue";
 import showPosterComponent from "./showPosterComponent.vue";
+import getVoteStarsComponent from "./getVoteStarsComponent.vue";
 
 
 export default {
@@ -22,8 +24,9 @@ export default {
   },
   components:{
     showPosterComponent,
-    showFlagComponent 
-  }
+    showFlagComponent,
+    getVoteStarsComponent
+}
 }
 </script>
 
