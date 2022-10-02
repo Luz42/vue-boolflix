@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <headerComponent @search="getApi"/>
-    <mainComponent :items="movies"/>
+    <mainComponent :movies="moviesData" :series="seriesData"/>
   </div>
 </template>
 
@@ -15,7 +15,8 @@ export default {
   name: 'App',
   data(){return{
     textSearched:'',
-    movies:[],
+    moviesData:[],
+    seriesData:[],
 
   }},
   components:{
@@ -33,17 +34,26 @@ export default {
   methods:{
     //BISOGNA EVITARE DI FARE UNA NUOVA RICHIESTA SE IL VALORE RIMANE INVARIATO
     //*********Come posso fare la chiamata evitando di ripetere il comando?**************** 
-    getApi(searchByName){
+    getApi(searchByName, moviesOrSeries){
       if(searchByName !== this.textSearched){
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchByName}`)
+      axios.get(`https://api.themoviedb.org/3/${moviesOrSeries}?api_key=${apiKey}&query=${searchByName}&language=it-IT`)
       .then(({data, status})=>{
 
         if(status === 200){
-          this.movies = []
-          this.movies.push(...data.results)
-          console.log(this.movies)
+          //MOVIES DATA
+          if(moviesOrSeries === 'search/movie'){
+            //console.log(moviesOrSeries)
+            this.moviesData = []
+            this.moviesData.push(...data.results)
+            //console.log(this.moviesData)
+          //SERIES DATA
+          }else{
+            //console.log(moviesOrSeries)
+            this.seriesData = []
+            this.seriesData.push(...data.results)
+            console.log(this.seriesData)
+          }
           this.textSearched = searchByName
-          
         }
       })
       .catch(error=> {
@@ -52,6 +62,8 @@ export default {
     }}
   }
 }
+//il figlio invia il dato con la stringa da inserire nella chiamata
+//quindi quando la chiamata fatta viene inviata al figlio viene passato anche il dato ricevuto come elemento della funzione
 </script>
 
 <style lang="scss">
