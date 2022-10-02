@@ -45,7 +45,7 @@ export default {
             //console.log(moviesOrSeries)
             this.moviesData = []
             this.moviesData.push(...data.results)
-            //console.log(this.moviesData)
+            console.log(this.moviesData)
           //SERIES DATA
           }else{
             //console.log(moviesOrSeries)

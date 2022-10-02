@@ -5,6 +5,7 @@
       <li>titolo originale: {{ movie.original_title }}</li>
       <li>lingua originale: <ShowFlagComponent :isoFlag="movie.original_language"/> {{ movie.original_language }}</li>
       <li>voto: {{ movie.vote_average }}</li>
+      <li>copertina: <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" @error="showError" alt="#"></li>
     </ul>
   </section>
 </template>
@@ -15,11 +16,19 @@ import ShowFlagComponent from "./showFlagComponent.vue";
 
 export default {
   name:'moviesListComponent',
+  data(){return{
+    errorImg: false
+  }},
   props:{
     movie: Object
   },
   components:{
     ShowFlagComponent 
+  },
+  methods:{
+    showError(){
+      this.errorImg = true
+    }
   }
 }
 </script>
