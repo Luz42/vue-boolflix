@@ -1,12 +1,26 @@
 <template>
-   <section>
-      
-   </section>
- </template>
+  <section class="border col">
+            <ul>
+            <li>titolo: {{ serie.name }}</li>
+            <li>titolo originale: {{ serie.original_name }}</li>
+            <li>lingua originale: <ShowFlagComponent :isoFlag="serie.original_language"/> {{ serie.original_language }}</li>
+            <li>voto: {{ serie.vote_average }}</li>
+            </ul>
+  </section>
+</template>
   
 <script>
+import ShowFlagComponent from "./showFlagComponent.vue";
+
+
 export default {
-  name:'moviesListComponent'
+  name:'moviesListComponent',
+  props:{
+    serie: Object
+  },
+  components:{
+    ShowFlagComponent 
+  }
 }
 </script>
 
