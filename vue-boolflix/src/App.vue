@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <headerComponent @search="getApi"/>
+  <div id="app" class="container-fluid d-flex flex-column">
+    <headerComponent titleApp="boolflix" @search="getApi"/>
     <mainComponent :movies="moviesData" :series="seriesData"/>
   </div>
 </template>
@@ -74,7 +74,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
 }
 </style>
