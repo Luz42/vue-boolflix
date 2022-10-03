@@ -1,13 +1,14 @@
 <template>
-  <section class="border col p-0 d-flex position-relative">
+  <section class="border col p-0 d-flex justify-content-center align-items-center position-relative">
     <showPosterComponent :image="movie.poster_path"/>
-    <ul class="position-absolute top-0 left-0">
-      <li>titolo: {{ movie.title }}</li>
-      <li>titolo originale: {{ movie.original_title }}</li>
-      <li>lingua originale: <showFlagComponent :isoFlag="movie.original_language"/> {{ movie.original_language }}</li>
-      <li>voto: {{ movie.vote_average }}</li>
-      <getVoteStarsComponent :vote="movie.vote_average"/>
-    </ul>
+    <figcaption  class="position-absolute top-50 translate-middle-y w-75">
+      <ul>
+        <li><strong>Titolo:</strong> {{ movie.title }}</li>
+        <li><strong>Titolo originale:</strong> {{ movie.original_title }}</li>
+        <li><strong>Lingua originale:</strong> <showFlagComponent :isoFlag="movie.original_language"/> {{ movie.original_language }}</li>
+        <li><strong>Voto:</strong><getVoteStarsComponent :vote="movie.vote_average"/></li>
+      </ul>
+    </figcaption>
   </section>
 </template>
 
@@ -31,5 +32,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+  ul{
+    list-style: none;
+    color: black;
+  }
 </style>

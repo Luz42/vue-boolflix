@@ -1,11 +1,11 @@
-<template>                                                                       
-  <li>
-    <font-awesome-icon 
-    v-for="star in STARS_NUMBER" 
-    :key="star" 
-    :icon="[star <= getVoteMax ? 'fa-solid' : 'fa-regular', 'fa-star']" />
-    <!--dovendo assegnare più valori si utilizzano le parentesi quadre-->
-  </li>
+<template>
+    <div>
+        <font-awesome-icon 
+        v-for="star in STARS_NUMBER" 
+        :key="star" 
+        :icon="[star <= getVoteMax ? 'fa-solid' : 'fa-regular', 'fa-star']" />
+        <!--dovendo assegnare più valori si utilizzano le parentesi quadre-->
+    </div>                                                                       
 </template>
 
 <script>
@@ -29,5 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+div{
+    display: inline-block;
+}
 </style>
