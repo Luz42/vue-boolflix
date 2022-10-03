@@ -1,10 +1,10 @@
 <template>
-  <main class="container">
-    <div class="row">
+  <main class="container-fluid">
+    <div class="row p-5">
       <h2>MOVIES</h2>
       <moviesListComponent :movie="movie" v-for="movie in movies" :key="movie.id"/>
     </div>
-    <div class="row">
+    <div class="row p-5">
       <h2>SERIES</h2>
       <seriesListComponent :serie="serie" v-for="serie in series" :key="serie.id"/>
     </div>
