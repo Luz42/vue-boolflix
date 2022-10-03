@@ -1,6 +1,8 @@
 <template>
-    <li v-if="!errorImg">copertina: <img class="img-fluid" :src="`https://image.tmdb.org/t/p/w342${image}`" @error="fixImage" alt="#"></li>
-    <li v-else><img class="img-fluid" src="@/assets/imgNotAvailable.png" alt="#"></li>
+  <picture class="flex-shrink-1">
+    <div v-if="!errorImg"><img :src="`https://image.tmdb.org/t/p/w342${image}`" @error="fixImage" alt="#"></div>
+    <div v-else><img src="@/assets/imgNotAvailable.png" style="width: 352px; height:513px" alt="#"></div>
+  </picture>
 </template>
 
 <script>

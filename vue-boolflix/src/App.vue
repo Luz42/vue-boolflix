@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container-fluid d-flex flex-column" style="height: 100vh">
+  <div id="app" class="d-flex flex-column" style="height: 100vh">
     <headerComponent titleApp="boolflix" @search="getApi"/>
     <mainComponent :movies="moviesData" :series="seriesData"/>
   </div>

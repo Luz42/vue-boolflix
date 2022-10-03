@@ -1,17 +1,13 @@
 <template>
-  <main class="row flex-grow-1" style="overflow-y:auto">
-    <div class="col-12">
+  <main class="container-fluid flex-grow-1 d-flex flex-column" style="overflow-y:auto">
       <div class="row p-5 gap-4 d-flex justify-content-center">
         <h2>MOVIES</h2>
         <moviesListComponent :movie="movie" v-for="movie in movies" :key="movie.id"/>
       </div>
-    </div>
-    <div class="col-12">
       <div class="row p-5 gap-4 d-flex justify-content-center">
         <h2>SERIES</h2>
         <seriesListComponent :serie="serie" v-for="serie in series" :key="serie.id"/>
       </div>
-    </div>
   </main>
 </template>
 
