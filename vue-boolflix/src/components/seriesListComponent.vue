@@ -3,8 +3,8 @@
     <showPosterComponent :image="serie.poster_path"/>
     <figcaption class="p-4 position-absolute">
       <ul class="p-0">
-        <li><strong>Titolo: </strong> {{ serie.title }}</li>
-        <li><strong>Titolo originale: </strong> {{ serie.original_title }}</li>
+        <li><strong>Titolo: </strong> {{ serie.name }}</li>
+        <li><strong>Titolo originale: </strong> {{ serie.original_name }}</li>
         <li><strong>Lingua originale: </strong> <showFlagComponent :isoFlag="serie.original_language"/></li>
         <li><strong>Voto: </strong><getVoteStarsComponent :vote="serie.vote_average"/></li>
         <li v-if="serie.overview"><strong>Overview: </strong>{{serie.overview}}</li>
