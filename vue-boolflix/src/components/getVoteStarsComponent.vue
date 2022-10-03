@@ -3,7 +3,8 @@
         <font-awesome-icon 
         v-for="star in STARS_NUMBER" 
         :key="star" 
-        :icon="[star <= getVoteMax ? 'fa-solid' : 'fa-regular', 'fa-star']" />
+        :icon="[star <= getVoteMax ? 'fa-solid' : 'fa-regular', 'fa-star']"
+        style="color:yellow" />
         <!--dovendo assegnare più valori si utilizzano le parentesi quadre-->
     </div>                                                                       
 </template>

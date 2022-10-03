@@ -1,5 +1,5 @@
 <template>
-  <picture>
+  <picture style="z-index: 1">
     <div v-if="!errorImg"><img :src="`https://image.tmdb.org/t/p/w342${image}`" @error="fixImage" alt="#"></div>
     <div v-else><img src="@/assets/imgNotAvailable.png" style="width: 352px; height:513px" alt="#"></div>
   </picture>
