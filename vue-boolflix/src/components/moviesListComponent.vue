@@ -1,5 +1,5 @@
 <template>
-  <section class="border col">
+  <section class="border col-2 p-3">
     <ul>
       <li>titolo: {{ movie.title }}</li>
       <li>titolo originale: {{ movie.original_title }}</li>
