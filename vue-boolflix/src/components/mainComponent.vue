@@ -1,11 +1,11 @@
 <template>
-  <main class="container-fluid flex-grow-1 d-flex flex-column" style="overflow-y:auto">
-      <section class="row p-5 gap-4 d-flex justify-content-center">
-        <h2>MOVIES</h2>
+  <main class="container-fluid flex-grow-1 d-flex flex-column justify-content-center" style="overflow:auto">
+      <section class="row p-5 gap-4 d-flex flex-nowrap flex-grow-1" style="overflow:auto">
+        <!-- <h2>MOVIES</h2> -->
         <moviesListComponent :movie="movie" v-for="movie in movies" :key="movie.id"/>
       </section>
-      <section class="row p-5 gap-4 d-flex justify-content-center">
-        <h2>SERIES</h2>
+      <section class="row p-5 gap-4 d-flex flex-nowrap flex-grow-1" style="overflow:auto">
+        <!-- <h2>SERIES</h2> -->
         <seriesListComponent :serie="serie" v-for="serie in series" :key="serie.id"/>
       </section>
   </main>

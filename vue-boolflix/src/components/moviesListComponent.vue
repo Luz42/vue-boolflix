@@ -1,5 +1,5 @@
 <template>
-  <div class="border col p-0 d-flex justify-content-center align-items-center position-relative bg-black">
+  <div class="col p-0 d-flex justify-content-center align-items-center position-relative bg-black">
     <showPosterComponent :image="movie.poster_path"/>
     <figcaption class="p-4 position-absolute">
       <ul class="p-0">
