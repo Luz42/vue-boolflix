@@ -1,5 +1,5 @@
 <template>
-  <section class="border col p-0 d-flex justify-content-center align-items-center position-relative bg-black">
+  <div class="border col p-0 d-flex justify-content-center align-items-center position-relative bg-black">
     <showPosterComponent :image="movie.poster_path"/>
     <figcaption class="p-4 position-absolute">
       <ul class="p-0">
@@ -10,7 +10,7 @@
         <li v-if="movie.overview"><strong>Overview: </strong>{{movie.overview}}</li>
       </ul>
     </figcaption>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -46,7 +46,7 @@ export default {
     background-color: black;
     z-index: -1;
   }
-  section:hover figcaption{
+  div.bg-black:hover figcaption{
     z-index: 1;
   }
 </style>

@@ -1,14 +1,16 @@
 <template>
-  <section class="border col p-0 d-flex position-relative">
+  <div class="border col p-0 d-flex justify-content-center align-items-center position-relative bg-black">
     <showPosterComponent :image="serie.poster_path"/>
-    <ul class="position-absolute top-0 left-0">
-      <li>titolo: {{ serie.name }}</li>
-      <li>titolo originale: {{ serie.original_name }}</li>
-      <li>lingua originale: <showFlagComponent :isoFlag="serie.original_language"/> {{ serie.original_language }}</li>
-      <li>voto: {{ serie.vote_average }}</li>
-      <getVoteStarsComponent :vote="serie.vote_average"/>
-    </ul>
-  </section>
+    <figcaption class="p-4 position-absolute">
+      <ul class="p-0">
+        <li><strong>Titolo: </strong> {{ serie.title }}</li>
+        <li><strong>Titolo originale: </strong> {{ serie.original_title }}</li>
+        <li><strong>Lingua originale: </strong> <showFlagComponent :isoFlag="serie.original_language"/></li>
+        <li><strong>Voto: </strong><getVoteStarsComponent :vote="serie.vote_average"/></li>
+        <li v-if="serie.overview"><strong>Overview: </strong>{{serie.overview}}</li>
+      </ul>
+    </figcaption>
+  </div>
 </template>
   
 <script>
@@ -32,5 +34,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+ul{
+    list-style: none;
+    *{
+      padding: 1% 0;
+    }
+  }
+  figcaption{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    background-color: black;
+    z-index: -1;
+  }
+  div.bg-black:hover figcaption{
+    z-index: 1;
+  }
 </style>

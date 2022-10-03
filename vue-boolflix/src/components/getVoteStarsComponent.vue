@@ -25,7 +25,6 @@ export default {
             return Math.ceil(this.vote / 10 * this.STARS_NUMBER)
         }
     }
-
 }
 </script>
 
