@@ -1,6 +1,11 @@
-<template>
-  <li>{{getVoteMax5}}<font-awesome-icon icon="fa-regular fa-star" />
-</li>
+<template>                                                                       
+  <li>
+    <font-awesome-icon 
+    v-for="star in STARS_NUMBER" 
+    :key="star" 
+    :icon="[star <= getVoteMax ? 'fa-solid' : 'fa-regular', 'fa-star']" />
+    <!--dovendo assegnare più valori si utilizzano le parentesi quadre-->
+  </li>
 </template>
 
 <script>
@@ -8,13 +13,15 @@
 
 export default {
     name:'getStarsComponent',
+    data(){return{
+        STARS_NUMBER: 5
+    }},
     props:{
         vote: Number
     },
     computed:{
-        getVoteMax5(){
-            return Math.ceil(parseInt(this.vote) / 2)
-            //console.log(fullVote)
+        getVoteMax(){
+            return Math.ceil(this.vote / 10 * this.STARS_NUMBER)
         }
     }
 
