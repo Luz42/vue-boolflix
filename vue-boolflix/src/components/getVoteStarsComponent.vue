@@ -1,8 +1,10 @@
 <template>
-  <li>{{getVoteMax5}}</li>
+  <li>{{getVoteMax5}}<font-awesome-icon icon="fa-regular fa-star" />
+</li>
 </template>
 
 <script>
+
 
 export default {
     name:'getStarsComponent',
