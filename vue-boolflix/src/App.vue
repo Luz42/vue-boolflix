@@ -2,7 +2,7 @@
   <div id="app" class="d-flex flex-column" style="height:100vh">
     <headerComponent titleApp="boolflix" @search="getApi"/>
     <mainComponent v-if="moviesData.length > 0" :movies="moviesData" :series="seriesData"/>
-    <StartEmptyMainComponent v-else/>
+    <StartEmptyMainComponent @startSearch="getApi" v-else/>
   </div>
 </template>
 
