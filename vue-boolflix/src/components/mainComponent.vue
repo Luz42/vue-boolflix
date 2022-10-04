@@ -1,12 +1,16 @@
 <template>
-  <main class="container-fluid flex-grow-1 d-flex flex-column justify-content-center" style="overflow:auto">
-      <section class="row p-5 gap-4 d-flex flex-nowrap flex-grow-1" style="overflow:auto">
-        <!-- <h2>MOVIES</h2> -->
-        <moviesListComponent :movie="movie" v-for="movie in movies" :key="movie.id"/>
+  <main class="container-fluid flex-grow-1 d-flex flex-column justify-content-center" style="overflow-y:auto">
+      <section style="height:50%" >
+        <h4 class="p-3 px-4 m-0">MOVIES</h4>
+        <div class="row px-5 pb-3 gap-4 d-flex flex-nowrap" style="overflow-x:auto">
+          <moviesListComponent :movie="movie" v-for="movie in movies" :key="movie.id"/>
+        </div>
       </section>
-      <section class="row p-5 gap-4 d-flex flex-nowrap flex-grow-1" style="overflow:auto">
-        <!-- <h2>SERIES</h2> -->
-        <seriesListComponent :serie="serie" v-for="serie in series" :key="serie.id"/>
+      <section style="height:50%">
+        <h4 class="p-3 px-4 m-0">SERIES</h4>
+        <div class="row px-5 pb-3 gap-4 d-flex flex-nowrap" style="overflow-x:auto">
+          <seriesListComponent :serie="serie" v-for="serie in series" :key="serie.id"/>
+        </div>
       </section>
   </main>
 </template>
