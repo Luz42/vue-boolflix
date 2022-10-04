@@ -19,6 +19,7 @@ export default {
     textSearched:'',
     moviesData:[],
     seriesData:[],
+    categories:['search/movie', 'search/tv']
 
   }},
   components:{
@@ -26,42 +27,38 @@ export default {
     mainComponent,
     StartEmptyMainComponent
 },
-    // computed:{
-    //   showElements(){
-    //     this.getApi(this.searchByName)
-    //     return this.movies
-    //   }
-    // },
 
   //all'avvio della ricerca la stringa che inserirò nell'API assumerà il valore contenuto(v-model)
   methods:{
     //BISOGNA EVITARE DI FARE UNA NUOVA RICHIESTA SE IL VALORE RIMANE INVARIATO
     //*********Come posso fare la chiamata evitando di ripetere il comando?**************** 
-    getApi(searchByName, moviesOrSeries){
+    getApi(searchByName){
       if(searchByName !== this.textSearched){
-      axios.get(`https://api.themoviedb.org/3/${moviesOrSeries}?api_key=${apiKey}&query=${searchByName}&language=it-IT`)
-      .then(({data, status})=>{
+        for(let i = 0; i < this.categories.length; i++){
+          axios.get(`https://api.themoviedb.org/3/${this.categories[i]}?api_key=${apiKey}&query=${searchByName}&language=it-IT`)
+          .then(({data, status})=>{
 
-        if(status === 200){
-          //MOVIES DATA
-          if(moviesOrSeries === 'search/movie'){
-            //console.log(moviesOrSeries)
-            this.moviesData = []
-            this.moviesData.push(...data.results)
-            console.log(this.moviesData)
-          //SERIES DATA
-          }else{
-            //console.log(moviesOrSeries)
-            this.seriesData = []
-            this.seriesData.push(...data.results)
-            console.log(this.seriesData)
+          if(status === 200){
+            //MOVIES DATA
+            if(this.categories[i] === 'search/movie'){
+              //console.log(moviesOrSeries)
+              this.moviesData = []
+              this.moviesData.push(...data.results)
+              console.log(this.moviesData)
+            //SERIES DATA
+            }else{
+              //console.log(moviesOrSeries)
+              this.seriesData = []
+              this.seriesData.push(...data.results)
+              console.log(this.seriesData)
+            }
+            this.textSearched = searchByName
           }
-          this.textSearched = searchByName
-        }
-      })
-      .catch(error=> {
-        console.log('Errore: ' + error.message)
-      })
+        })
+        .catch(error=> {
+          console.log('Errore: ' + error.message)
+        })
+      }
     }}
   }
 }

@@ -31,8 +31,8 @@
       
       data(){return{
         searchByName: '',
-        queryMovies: 'search/movie',
-        querySeries: 'search/tv'
+        //queryMovies: 'search/movie',
+        //querySeries: 'search/tv'
       }},
 
       props:{
@@ -42,8 +42,8 @@
       methods:{
         findElements(){
 
-            this.$emit('search', this.searchByName.trim(),this.queryMovies),
-            this.$emit('search', this.searchByName.trim(),this.querySeries)
+            this.$emit('search', this.searchByName.trim()),
+            //this.$emit('search', this.searchByName.trim(),this.querySeries)
             console.log(this.searchByName.trim())
         }
     }    
