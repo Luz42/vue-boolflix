@@ -1,13 +1,15 @@
 <template>
   <div id="app" class="d-flex flex-column" style="height:100vh">
     <headerComponent titleApp="boolflix" @search="getApi"/>
-    <mainComponent :movies="moviesData" :series="seriesData"/>
+    <mainComponent v-if="moviesData.length > 0" :movies="moviesData" :series="seriesData"/>
+    <StartEmptyMainComponent v-else/>
   </div>
 </template>
 
 <script>
 import headerComponent from '@/components/headerComponent.vue'
 import mainComponent from '@/components/mainComponent.vue'
+import StartEmptyMainComponent from './components/startEmptyMainComponent.vue'
 import axios from 'axios'
 import { apiKey } from './env'
 
@@ -21,8 +23,9 @@ export default {
   }},
   components:{
     headerComponent,
-    mainComponent
-  },
+    mainComponent,
+    StartEmptyMainComponent
+},
     // computed:{
     //   showElements(){
     //     this.getApi(this.searchByName)
